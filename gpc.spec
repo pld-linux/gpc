@@ -5,13 +5,14 @@ Summary:	GNU Pascal Compiler
 Summary(pl):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
-Release:	5
+Release:	6
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.gz
 # Source0-md5:	82c26f362a6df7d2ba5b967606bd7d9a
 Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
 # Source1-md5:	e418c30e9cbf71f82f7a9cd246c13ac5
+Patch0:		gcc-cmpi.patch
 URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,6 +37,7 @@ takich jak p2c, jest to prawdziwy kompilator, a nie tylko konwerter.
 
 %prep
 %setup -q -n gcc-%{GCC_VERSION} -a 1
+%patch0 -p1
 mv gpc-*/p gcc/.
 cd gcc
 patch -s -p1 < p/diffs/gcc-%{GCC_VERSION}.diff
