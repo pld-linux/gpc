@@ -14,7 +14,7 @@ Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
 # Source1-md5:	f63312c3fe961518bf63964705799e57
 URL:		http://www.free-pascal.de/
 BuildRequires:	autoconf
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A Pascal compiler based on the gcc %{GCC_VERSION} compiler.
