@@ -5,7 +5,7 @@ Summary:	GNU Pascal Compiler
 Summary(pl):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.gz
