@@ -14,6 +14,7 @@ Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
 # Source1-md5:	e418c30e9cbf71f82f7a9cd246c13ac5
 URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,6 +40,8 @@ cd gcc
 patch -s -p1 < p/diffs/gcc-%{GCC_VERSION}.diff
 
 %build
+cp -f /usr/share/automake/config.sub .
+cp -f /usr/share/automake/config.sub boehm-gc
 cd gcc
 #%{__autoconf}
 cd ..
