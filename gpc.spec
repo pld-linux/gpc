@@ -12,8 +12,8 @@ Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION
 # Source0-md5:	82c26f362a6df7d2ba5b967606bd7d9a
 Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
 # Source1-md5:	f63312c3fe961518bf63964705799e57
-BuildRequires:	autoconf
 URL:		http://www.free-pascal.de/
+BuildRequires:	autoconf
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,7 +39,9 @@ cd gcc
 patch -s -p1 < p/diffs/gcc-%{GCC_VERSION}.diff
 
 %build
-(cd gcc; autoconf)
+cd gcc
+%{__autoconf}
+cd ..
 rm -rf obj-%{_target_platform}
 install -d obj-%{_target_platform} && cd obj-%{_target_platform}
 
@@ -70,7 +72,6 @@ cd ..
         infodir=%{_infodir}
 
 %install
-rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/lib,%{_datadir}}
 
