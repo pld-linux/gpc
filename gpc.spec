@@ -43,9 +43,9 @@ patch -s -p1 < p/diffs/gcc-%{GCC_VERSION}.diff
 %build
 cp -f /usr/share/automake/config.sub .
 cp -f /usr/share/automake/config.sub boehm-gc
-cd gcc
+#cd gcc
 #%{__autoconf}
-cd ..
+#cd ..
 rm -rf obj-%{_target_platform}
 install -d obj-%{_target_platform} && cd obj-%{_target_platform}
 
@@ -109,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 #%doc gcc/p/FAQ p/INSTALL gcc/p/doc/TODO
 #%doc gcc/p/doc/manual.texi.tar.gz
 #%doc gcc/p/demos gcc/p/test
-%attr(755, root, root) %{_bindir}/gpc*
+%attr(755,root,root) %{_bindir}/gpc*
 %dir %{_libdir}/gcc-lib/%{_target_cpu}*/*
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/gpc*
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/crt*.o
@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 #%{_libdir}/gcc-lib/%{_target_cpu}*/*/SYSCALLS.c.X
 %{_infodir}/gpc*
 %{_mandir}/man?/gpc*
-#%attr(0755, root, root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc-cpp
-#%attr(0755, root, root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc1
+#%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc-cpp
+#%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc1
 #%{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/libgpc.a
 #%{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/units
