@@ -5,7 +5,7 @@ Summary:	GNU Pascal Compiler
 Summary(pl):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.gz
@@ -52,8 +52,13 @@ CFLAGS="%{rpmcflags}" \
 CXXFLAGS="%{rpmcflags}" \
 TEXCONFIG=false ../configure \
         --prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--libexecdir=%{_libexecdir} \
         --infodir=%{_infodir} \
         --enable-shared \
+%ifarch amd64
+	--disable-multilib \
+%endif
 %ifnarch sparc sparc64
         --enable-threads=posix \
         --enable-haifa \
@@ -83,6 +88,8 @@ PATH=$PATH:/sbin:%{_sbindir}
 
 %{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
+	libdir=$RPM_BUILD_ROOT%{_libdir} \
+	libexecdir=$RPM_BUILD_ROOT%{_libexecdir} \
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	infodir=$RPM_BUILD_ROOT%{_infodir}
 
