@@ -40,7 +40,7 @@ patch -s -p1 < p/diffs/gcc-%{GCC_VERSION}.diff
 
 %build
 cd gcc
-%{__autoconf}
+#%{__autoconf}
 cd ..
 rm -rf obj-%{_target_platform}
 install -d obj-%{_target_platform} && cd obj-%{_target_platform}
