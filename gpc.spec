@@ -1,7 +1,8 @@
 %define GPC_VERSION	20030507
 %define GCC_VERSION	3.2.1
 
-Summary:	GNU Pascal
+Summary:	GNU Pascal Compiler
+Summary(pl):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
 Release:	0.1
@@ -22,6 +23,14 @@ GNU Pascal is part of the GNU compiler family, GNU CC or GCC. It
 combines a Pascal front-end with the proven GNU C back-end for code
 generation and optimization. Unlike utilities such as p2c, this is a
 true compiler, not just a converter.
+
+%description
+Kompilator Pascala oparty o wersjê %{GCC_VERSION} kompilatora gcc.
+
+GNU Pascal stanowi czê¶æ rodziny kompilatorów GNU, GNU CC lub GCC.
+£±czy on w sobie nak³adkê pascalow± ze sprawdzonym w GNU C wewnêtrznym
+mechanizmem generacji kodu i optymalizacji. W odró¿nieniu od narzêdzi
+takich jak p2c, jest to prawdziwy kompilator, a nie tylko konwerter.
 
 %prep
 %setup -q -n gcc-%{GCC_VERSION} -a 1
