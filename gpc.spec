@@ -77,13 +77,10 @@ PATH=$PATH:/sbin:%{_sbindir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/install-info --info-dir=/usr/info /usr/info/gpc.info.gz \
- --entry="* gpc: (gpc).                   The GNU Pascal compiler."
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %preun
-if [ $1 = 0 ]; then
-   /sbin/install-info --delete --info-dir=/usr/info /usr/info/gpc.info.gz
-fi
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files
 %defattr(644,root,root,755)
