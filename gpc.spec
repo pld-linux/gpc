@@ -12,7 +12,7 @@ Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION
 # Source0-md5:	82c26f362a6df7d2ba5b967606bd7d9a
 Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
 # Source1-md5:	e418c30e9cbf71f82f7a9cd246c13ac5
-URL:		http://www.free-pascal.de/
+URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
