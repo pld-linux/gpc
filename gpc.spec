@@ -5,7 +5,7 @@ Summary:	GNU Pascal Compiler
 Summary(pl):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.gz
@@ -108,7 +108,8 @@ rm -rf $RPM_BUILD_ROOT
 #%doc gcc/p/FAQ p/INSTALL gcc/p/doc/TODO
 #%doc gcc/p/doc/manual.texi.tar.gz
 #%doc gcc/p/demos gcc/p/test
-%attr(0755, root, root) %{_bindir}/gpc*
+%attr(755, root, root) %{_bindir}/gpc*
+%dir %{_libdir}/gcc-lib/%{_target_cpu}*/*
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/gpc*
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/crt*.o
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/collect2
