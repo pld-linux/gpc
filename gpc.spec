@@ -51,33 +51,33 @@ install -d obj-%{_target_platform} && cd obj-%{_target_platform}
 CFLAGS="%{rpmcflags}" \
 CXXFLAGS="%{rpmcflags}" \
 TEXCONFIG=false ../configure \
-        --prefix=%{_prefix} \
+	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--libexecdir=%{_libexecdir} \
-        --infodir=%{_infodir} \
-        --enable-shared \
+	--infodir=%{_infodir} \
+	--enable-shared \
 %ifarch amd64
 	--disable-multilib \
 %endif
 %ifnarch sparc sparc64
-        --enable-threads=posix \
-        --enable-haifa \
+	--enable-threads=posix \
+	--enable-haifa \
 %endif
-        --with-gnu-as \
-        --with-gnu-ld \
-        --disable-nls \
-        --build=%{_target_platform} \
-        --host=%{_target_platform} \
+	--with-gnu-as \
+	--with-gnu-ld \
+	--disable-nls \
+	--build=%{_target_platform} \
+	--host=%{_target_platform} \
 	--enable-languages=pascal
 
 PATH=$PATH:/sbin:%{_sbindir}
-touch  ../gcc/c-gperf.h
+touch ../gcc/c-gperf.h
 
 cd ..
 %{__make} -C obj-%{_target_platform} bootstrap \
-        LDFLAGS_FOR_TARGET="%{rpmldflags}" \
-        mandir=%{_mandir} \
-        infodir=%{_infodir}
+	LDFLAGS_FOR_TARGET="%{rpmldflags}" \
+	mandir=%{_mandir} \
+	infodir=%{_infodir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
