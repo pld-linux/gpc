@@ -24,7 +24,7 @@ combines a Pascal front-end with the proven GNU C back-end for code
 generation and optimization. Unlike utilities such as p2c, this is a
 true compiler, not just a converter.
 
-%description
+%description -l pl
 Kompilator Pascala oparty o wersjê %{GCC_VERSION} kompilatora gcc.
 
 GNU Pascal stanowi czê¶æ rodziny kompilatorów GNU, GNU CC lub GCC.
