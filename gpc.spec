@@ -1,5 +1,5 @@
-%define GPC_VERSION	2.1
-%define GCC_VERSION	2.95.3
+%define GPC_VERSION	20030507
+%define GCC_VERSION	3.2.1
 
 Summary:	GNU Pascal
 Name:		gpc
@@ -8,9 +8,9 @@ Release:	0.1
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.gz
-# Source0-md5:	f3ad4f32c2296fad758ed051b5ac8e28
-Source1:	http://www.gnu-pascal.de/current/%{name}-%{version}.tar.gz
-# Source1-md5:	2db23cb4b36f078aabdda259f64700db
+# Source0-md5:	82c26f362a6df7d2ba5b967606bd7d9a
+Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
+# Source1-md5:	f63312c3fe961518bf63964705799e57
 BuildRequires:	autoconf
 URL:		http://www.free-pascal.de/
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gcc-lib/%{_target_cpu}*/*/units
 %{_libdir}/gcc-lib/%{_target_cpu}*/*/include
 %{_libdir}/gcc-lib/%{_target_cpu}*/*/libg?c.a
-%{_libdir}/gcc-lib/%{_target_cpu}*/*/SYSCALLS.c.X
+#%{_libdir}/gcc-lib/%{_target_cpu}*/*/SYSCALLS.c.X
 %{_infodir}/gpc*
 %{_mandir}/man?/gpc*
 #%attr(0755, root, root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc-cpp
