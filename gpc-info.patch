@@ -1,0 +1,89 @@
+--- gcc-3.3.5/gcc/p/doc/hr/gpc.texi.orig	2005-01-01 23:47:23.000000000 +0100
++++ gcc-3.3.5/gcc/p/doc/hr/gpc.texi	2005-04-29 11:54:10.243802368 +0200
+@@ -21,13 +21,9 @@
+ 
+ @include version.texi
+ 
+-@dircategory GNU programski alati
++@dircategory Programming tools:
+ @direntry
+-* GPC: (gpc-hr).                GNU Pascal prevodilac (compiler).
+-@end direntry
+-@dircategory Pojedini alati
+-@direntry
+-* GPC: (gpc-hr)Pozivanje GPC-a. GNU Pascal prevodilac (compiler).
++* GPC: (gpc-hr).			GNU Pascal prevodilac (compiler)
+ @end direntry
+ 
+ @c For FSF printing, turn on finalout (to get rid of the black
+--- gcc-3.3.5/gcc/p/doc/hr/gpcs.texi.orig	2005-01-01 23:46:55.000000000 +0100
++++ gcc-3.3.5/gcc/p/doc/hr/gpcs.texi	2005-04-29 11:54:28.000103000 +0200
+@@ -16,8 +16,9 @@
+ @set lastupdate 2005-01-01
+ @set lasttranslationupdate 2003-04-27
+ 
++@dircategory Programming Languages:
+ @direntry
+-* Pascal Coding Standards: (gpcs-hr).   GNU Pascal Coding Standards (Croatian).
++* Pascal Coding Standards: (gpcs-hr).	GNU Pascal Coding Standards (Croatian)
+ @end direntry
+ 
+ @setchapternewpage odd
+--- gcc-3.3.5/gcc/p/doc/en/gpc.texi.orig	2005-01-01 23:45:15.000000000 +0100
++++ gcc-3.3.5/gcc/p/doc/en/gpc.texi	2005-04-29 11:49:23.986320120 +0200
+@@ -21,13 +21,9 @@
+ 
+ @include version.texi
+ 
+-@dircategory GNU programming tools
++@dircategory Programming tools:
+ @direntry
+-* GPC: (gpc).                   The GNU Pascal Compiler.
+-@end direntry
+-@dircategory Individual utilities
+-@direntry
+-* GPC: (gpc)Invoking GPC.       The GNU Pascal Compiler.
++* GPC: (gpc).				The GNU Pascal Compiler
+ @end direntry
+ 
+ @c For FSF printing, turn on finalout (to get rid of the black
+--- gcc-3.3.5/gcc/p/doc/en/gpcs.texi.orig	2005-03-19 01:52:27.000000000 +0100
++++ gcc-3.3.5/gcc/p/doc/en/gpcs.texi	2005-04-29 11:49:54.496681840 +0200
+@@ -12,8 +12,9 @@
+ @c Remember to update this when you save:
+ @set lastupdate 2005-01-01
+ 
++@dircategory Programming Languages:
+ @direntry
+-* Pascal Coding Standards: (gpcs).      GNU Pascal Coding Standards.
++* Pascal Coding Standards: (gpcs).	GNU Pascal Coding Standards
+ @end direntry
+ 
+ @setchapternewpage odd
+--- gcc-3.3.5/gcc/p/doc/de/gpcs.texi.orig	2005-03-19 01:53:43.000000000 +0100
++++ gcc-3.3.5/gcc/p/doc/de/gpcs.texi	2005-04-29 11:52:12.689673312 +0200
+@@ -14,8 +14,9 @@
+ @set lastupdate 2005-01-01
+ @set lasttranslationupdate 2005-01-01
+ 
++@dircategory Programming Languages:
+ @direntry
+-* Pascal Coding Standards: (gpcs-de).   GNU Pascal Coding Standards (German).
++* Pascal Coding Standards: (gpcs-de).	GNU Pascal Coding Standards (German)
+ @end direntry
+ 
+ @setchapternewpage odd
+--- gcc-3.3.5/gcc/p/doc/es/gpcs.texi.orig	2005-03-19 01:54:32.000000000 +0100
++++ gcc-3.3.5/gcc/p/doc/es/gpcs.texi	2005-04-29 11:53:10.318912336 +0200
+@@ -12,9 +12,9 @@
+ @c Remember to update this when you save
+ @set lastupdate 2005-01-01
+ 
+-
++@dircategory Programming Languages:
+ @direntry
+-* Estándares de Codificación Pascal: (gpcs).   Estándares de codificación GNU Pascal.
++* Estándares de Codificación Pascal: (gpcs).	Estándares de codificación GNU Pascal
+ @end direntry
+ 
+ @setchapternewpage odd
