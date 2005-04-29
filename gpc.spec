@@ -123,9 +123,11 @@ rm -rf $RPM_BUILD_ROOT
 #%dir %{_libdir}/gcc-lib/%{_target_cpu}*/*
 #%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/crt*.o
 #%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/collect2
-#%{_libdir}/gcc-lib/%{_target_cpu}*/*/include
+#%dir %{_libdir}/gcc-lib/%{_target_cpu}*/*/include
+#%{_libdir}/gcc-lib/%{_target_cpu}*/*/include/...
 #%{_libdir}/gcc-lib/%{_target_cpu}*/*/libgcc.a
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/gpc*
+%{_libdir}/gcc-lib/%{_target_cpu}*/*/include/gpc-in-c.h
 %{_libdir}/gcc-lib/%{_target_cpu}*/*/units
 %{_libdir}/gcc-lib/%{_target_cpu}*/*/libgpc.a
 %{_infodir}/gpc.info*
