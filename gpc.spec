@@ -15,6 +15,7 @@ Source1:	http://www.g-n-u.de/gpc/%{name}-%{version}.tar.bz2
 # Source1-md5:	cdc1460ba7b3cc099d404c5fa1202f8a
 Patch0:		gcc-cmpi.patch
 Patch1:		%{name}-info.patch
+Patch2:		%{name}-range.patch
 URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -45,6 +46,7 @@ takich jak p2c, jest to prawdziwy kompilator, a nie tylko konwerter.
 patch -s -p0 < p/diffs/gcc-%{GCC_VERSION}.diff
 mv p gcc
 %patch1 -p1
+%patch2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
