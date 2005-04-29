@@ -1,22 +1,25 @@
-%define GPC_VERSION	20030830
-%define GCC_VERSION	3.2.1
+# TODO: switch to 3.4.3 after Ac (not ready for gcc 4 yet)
+%define GPC_VERSION	20050331
+%define GCC_VERSION	3.3.5
 
 Summary:	GNU Pascal Compiler
 Summary(pl):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
-Release:	6
+Release:	1
 License:	GPL
 Group:		Development/Languages
-Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.gz
-# Source0-md5:	82c26f362a6df7d2ba5b967606bd7d9a
-Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.gz
-# Source1-md5:	e418c30e9cbf71f82f7a9cd246c13ac5
+Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.bz2
+# Source0-md5:	70ee088b498741bb08c779f9617df3a5
+Source1:	http://www.g-n-u.de/gpc/%{name}-%{version}.tar.bz2
+# Source1-md5:	cdc1460ba7b3cc099d404c5fa1202f8a
 Patch0:		gcc-cmpi.patch
+Patch1:		%{name}-info.patch
 URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
-Requires:	gcc-dirs
+#Requires:	gcc-dirs
+Requires:	gcc = 5:%{GCC_VERSION}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,9 +41,9 @@ takich jak p2c, jest to prawdziwy kompilator, a nie tylko konwerter.
 %prep
 %setup -q -n gcc-%{GCC_VERSION} -a 1
 %patch0 -p1
-mv gpc-*/p gcc/.
-cd gcc
-patch -s -p1 < p/diffs/gcc-%{GCC_VERSION}.diff
+patch -s -p0 < p/diffs/gcc-%{GCC_VERSION}.diff
+mv p gcc
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
@@ -49,11 +52,13 @@ cp -f /usr/share/automake/config.sub boehm-gc
 #%{__autoconf}
 #cd ..
 rm -rf obj-%{_target_platform}
-install -d obj-%{_target_platform} && cd obj-%{_target_platform}
+install -d obj-%{_target_platform}
+cd obj-%{_target_platform}
 
 CFLAGS="%{rpmcflags}" \
 CXXFLAGS="%{rpmcflags}" \
-TEXCONFIG=false ../configure \
+TEXCONFIG=false \
+../configure \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--libexecdir=%{_libexecdir} \
@@ -107,22 +112,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#%doc gcc/p/README p/COPYING gcc/p/COPYING.LIB gcc/p/ChangeLog
-#%doc gcc/p/FAQ p/INSTALL gcc/p/doc/TODO
-#%doc gcc/p/doc/manual.texi.tar.gz
-#%doc gcc/p/demos gcc/p/test
-%attr(755,root,root) %{_bindir}/gpc*
-%dir %{_libdir}/gcc-lib/%{_target_cpu}*/*
+%doc gcc/p/{AUTHORS,ChangeLog,FAQ,NEWS,README}
+#%doc gcc/p/demos
+%attr(755,root,root) %{_bindir}/binobj
+%attr(755,root,root) %{_bindir}/gpc
+%attr(755,root,root) %{_bindir}/gpc-run
+%attr(755,root,root) %{_bindir}/gpidump
+# common gcc stuff, not needed here if we use the same gcc version
+#%dir %{_libdir}/gcc-lib/%{_target_cpu}*/*
+#%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/crt*.o
+#%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/collect2
+#%{_libdir}/gcc-lib/%{_target_cpu}*/*/include
+#%{_libdir}/gcc-lib/%{_target_cpu}*/*/libgcc.a
 %attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/gpc*
-%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/crt*.o
-%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}*/*/collect2
 %{_libdir}/gcc-lib/%{_target_cpu}*/*/units
-%{_libdir}/gcc-lib/%{_target_cpu}*/*/include
-%{_libdir}/gcc-lib/%{_target_cpu}*/*/libg?c.a
-#%{_libdir}/gcc-lib/%{_target_cpu}*/*/SYSCALLS.c.X
-%{_infodir}/gpc*
-%{_mandir}/man?/gpc*
-#%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc-cpp
-#%attr(755,root,root) %{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/gpc1
-#%{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/libgpc.a
-#%{_libdir}/gcc-lib/%{_target_cpu}-redhat-linux/egcs-*/units
+%{_libdir}/gcc-lib/%{_target_cpu}*/*/libgpc.a
+%{_infodir}/gpc.info*
+%{_infodir}/gpcs.info*
+%lang(de) %{_infodir}/gpcs-de.info*
+%lang(es) %{_infodir}/gpcs-es.info*
+%lang(hr) %{_infodir}/gpcs-hr.info*
+%{_mandir}/man1/binobj.1*
+%{_mandir}/man1/gpc.1*
+%{_mandir}/man1/gpc-run.1*
+%{_mandir}/man1/gpidump.1*
