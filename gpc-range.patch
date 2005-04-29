@@ -1,0 +1,16 @@
+--- gcc-3.3.5/gcc/p/rts/move.pas.orig	2005-02-08 13:29:50.000000000 +0000
++++ gcc-3.3.5/gcc/p/rts/move.pas	2005-04-29 20:18:52.002857736 +0000
+@@ -60,10 +60,13 @@
+ 
+ function Merge (w1, w2: TWord; Shift1, Shift2: Integer): TWord; attribute (inline);
+ begin
++{ ignore arithmetic overflow in shl }
++{$R-}
+   if BytesBigEndian then
+     Merge := (w1 shl Shift1) or (w2 shr Shift2)
+   else
+     Merge := (w1 shr Shift1) or (w2 shl Shift2)
++{$R+}
+ end;
+ 
+ {$pointer-arithmetic,R-}
