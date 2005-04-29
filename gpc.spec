@@ -18,6 +18,7 @@ Patch1:		%{name}-info.patch
 URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	help2man
 #Requires:	gcc-dirs
 Requires:	gcc = 5:%{GCC_VERSION}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
