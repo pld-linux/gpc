@@ -20,6 +20,7 @@ URL:		http://www.gnu-pascal.de/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	help2man
+BuildRequires:	rpmbuild(macros) >= 1.213
 #Requires:	gcc-dirs
 Requires:	gcc = 5:%{GCC_VERSION}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,7 +68,7 @@ TEXCONFIG=false \
 	--libexecdir=%{_libexecdir} \
 	--infodir=%{_infodir} \
 	--enable-shared \
-%ifarch amd64
+%ifarch %{x8664}
 	--disable-multilib \
 %endif
 %ifnarch sparc sparc64
