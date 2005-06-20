@@ -1,6 +1,6 @@
 # TODO: switch to 3.4.3 after Ac (not ready for gcc 4 yet)
 %define GPC_VERSION	20050331
-%define GCC_VERSION	3.3.5
+%define GCC_VERSION	3.3.6
 
 Summary:	GNU Pascal Compiler
 Summary(pl):	Kompilator Pascala GNU
@@ -10,7 +10,7 @@ Release:	1
 License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.bz2
-# Source0-md5:	70ee088b498741bb08c779f9617df3a5
+# Source0-md5:	6936616a967da5a0b46f1e7424a06414
 Source1:	http://www.g-n-u.de/gpc/%{name}-%{version}.tar.bz2
 # Source1-md5:	cdc1460ba7b3cc099d404c5fa1202f8a
 Patch0:		gcc-cmpi.patch
@@ -44,7 +44,8 @@ takich jak p2c, jest to prawdziwy kompilator, a nie tylko konwerter.
 %prep
 %setup -q -n gcc-%{GCC_VERSION} -a 1
 %patch0 -p1
-patch -s -p0 < p/diffs/gcc-%{GCC_VERSION}.diff
+#patch -s -p0 < p/diffs/gcc-%{GCC_VERSION}.diff
+patch -s -p0 < p/diffs/gcc-3.3.5.diff
 mv p gcc
 %patch1 -p1
 %patch2 -p1
