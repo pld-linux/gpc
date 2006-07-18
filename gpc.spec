@@ -1,4 +1,4 @@
-# TODO: switch to 3.4.3 after Ac (not ready for gcc 4 yet)
+# TODO: update to 20060325 and switch to 4.0.3 after Ac (not ready for gcc 4.1 yet)
 %define GPC_VERSION	20050331
 %define GCC_VERSION	3.3.6
 
