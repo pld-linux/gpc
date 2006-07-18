@@ -11,7 +11,7 @@ License:	GPL
 Group:		Development/Languages
 Source0:	ftp://gcc.gnu.org/pub/gcc/releases/gcc-%{GCC_VERSION}/gcc-%{GCC_VERSION}.tar.bz2
 # Source0-md5:	6936616a967da5a0b46f1e7424a06414
-Source1:	http://www.g-n-u.de/gpc/%{name}-%{version}.tar.bz2
+Source1:	http://www.gnu-pascal.de/alpha/%{name}-%{version}.tar.bz2
 # Source1-md5:	cdc1460ba7b3cc099d404c5fa1202f8a
 Patch0:		gcc-cmpi.patch
 Patch1:		%{name}-info.patch
