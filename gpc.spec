@@ -3,7 +3,7 @@
 %define GCC_VERSION	3.3.6
 
 Summary:	GNU Pascal Compiler
-Summary(pl.UTF-8):   Kompilator Pascala GNU
+Summary(pl.UTF-8):	Kompilator Pascala GNU
 Name:		gpc
 Version:	%{GPC_VERSION}
 Release:	2
