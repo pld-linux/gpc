@@ -43,12 +43,12 @@ takich jak p2c, jest to prawdziwy kompilator, a nie tylko konwerter.
 
 %prep
 %setup -q -n gcc-%{GCC_VERSION} -a 1
-%patch0 -p1
+%patch -P0 -p1
 #patch -s -p0 < p/diffs/gcc-%{GCC_VERSION}.diff
 patch -s -p0 < p/diffs/gcc-3.3.5.diff
 mv p gcc
-%patch1 -p1
-%patch2 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
